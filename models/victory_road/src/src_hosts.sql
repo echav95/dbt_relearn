@@ -2,7 +2,7 @@ WITH raw_hosts AS (
  SELECT
  *
  FROM
- ANALYTICS.DBT_ECHAVEZ.RAW_HOSTS
+ {{source("ANALYTICS","hosts")}}
 )
 SELECT
  id AS host_id,

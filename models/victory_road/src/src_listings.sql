@@ -2,7 +2,7 @@ WITH raw_listings AS (
  SELECT
  *
  FROM
- ANALYTICS.DBT_ECHAVEZ.RAW_LISTINGS
+ {{source("ANALYTICS","listings")}}
 )
 SELECT
  id AS listing_id,
