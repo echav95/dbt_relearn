@@ -18,6 +18,7 @@ test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
+asset-paths: ["assets"]
 
 target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
@@ -42,6 +43,9 @@ models:
       +materialized: table
     victory_road:
       +materialized: view
+      # This post-hook would grant SELECT to all models in victory_road to role REPORT
+      # +post-hook:
+      #   - "GRANT SELECT ON {{ this }} TO ROLE REPORT"
       dim:
         +materialized: table
       src:
