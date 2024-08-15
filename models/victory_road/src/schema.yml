@@ -28,5 +28,6 @@ models:
                       'Hotel room']
 
      - name: minimum_nights
+       description: '{{ doc("dim_listings_cleansed_minimum_nights") }}'
        tests:
         - positive_value
