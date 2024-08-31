@@ -48,3 +48,6 @@ models:
         +materialized: table
       src:
         +materialized: ephemeral
+
+vars:
+  user_name: Broccoli
