@@ -1,0 +1,11 @@
+unit_tests:
+  - name: pokemon_strength_check
+    description: test to see how strong the pokemon are
+    model: pokemon_strength
+    given:
+      - input: ref("pokemon_battle")
+        rows:
+          - { ID: 1}
+    expect:
+      rows:
+        - { ID: 1, Power: Weak }
