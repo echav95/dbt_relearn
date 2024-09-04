@@ -5,7 +5,13 @@ unit_tests:
     given:
       - input: ref("pokemon_battle")
         rows:
-          - { ID: 1}
+          - { ID: 1, ATTACK: 49 }
+          - { ID: 2, ATTACK: 62 }
+          - { ID: 3, ATTACK: 82 }
+          - { ID: 4, ATTACK: 52 }
     expect:
       rows:
-        - { ID: 1, Power: Weak }
+        - { ID: 1, ATTACK: 49, Power: Weak }
+        - { ID: 2, ATTACK: 62, Power: Really Strong }
+        - { ID: 3, ATTACK: 82, Power: Really Strong }
+        - { ID: 4, ATTACK: 52, Power: Strong }
