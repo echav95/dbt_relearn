@@ -1,7 +1,8 @@
 WITH poke_data AS (
     SELECT *
-    FROM {{ ref("pokemon") }}
+    FROM {{ ref("pokemon_unclean") }}
     WHERE name NOT LIKE '%Mega%'
+    AND name NOT LIKE '%Primal%'
 )
 
 SELECT

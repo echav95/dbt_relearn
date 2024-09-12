@@ -6,8 +6,8 @@ id,Name,Type1,Type2,Total,HP,Attack,Defense,SpAtk,SpDef,Speed,Generation,Legenda
 4,Charmander,Fire,,309,39,52,43,60,50,65,1,False
 5,Charmeleon,Fire,,405,58,64,58,80,65,80,1,False
 6,Charizard,Fire,Flying,534,78,84,78,109,85,100,1,False
-6,CharizardMega Charizard X,Fire,Dragon,634,78,130,111,130,85,100,1,False
-6,CharizardMega Charizard Y,Fire,Flying,634,78,104,78,159,115,100,1,False
+6,Charizard Mega Charizard X,Fire,Dragon,634,78,130,111,130,85,100,1,False
+6,Charizard Mega Charizard Y,Fire,Flying,634,78,104,78,159,115,100,1,False
 7,Squirtle,Water,,314,44,48,65,50,64,43,1,False
 8,Wartortle,Water,,405,59,63,80,65,80,58,1,False
 9,Blastoise,Water,,530,79,83,100,85,105,78,1,False
@@ -427,10 +427,10 @@ id,Name,Type1,Type2,Total,HP,Attack,Defense,SpAtk,SpDef,Speed,Generation,Legenda
 384,Rayquaza,Dragon,Flying,680,105,150,90,150,90,95,3,True
 384,RayquazaMega Rayquaza,Dragon,Flying,780,105,180,100,180,100,115,3,True
 385,Jirachi,Steel,Psychic,600,100,100,100,100,100,100,3,True
-386,DeoxysNormal Forme,Psychic,,600,50,150,50,150,50,150,3,True
-386,DeoxysAttack Forme,Psychic,,600,50,180,20,180,20,150,3,True
-386,DeoxysDefense Forme,Psychic,,600,50,70,160,70,160,90,3,True
-386,DeoxysSpeed Forme,Psychic,,600,50,95,90,95,90,180,3,True
+386,Deoxys Normal Forme,Psychic,,600,50,150,50,150,50,150,3,True
+386,Deoxys Attack Forme,Psychic,,600,50,180,20,180,20,150,3,True
+386,Deoxys Defense Forme,Psychic,,600,50,70,160,70,160,90,3,True
+386,Deoxys Speed Forme,Psychic,,600,50,95,90,95,90,180,3,True
 387,Turtwig,Grass,,318,55,68,64,45,55,31,4,False
 388,Grotle,Grass,,405,75,89,85,55,65,36,4,False
 389,Torterra,Grass,Ground,525,95,109,105,75,85,56,4,False
@@ -457,9 +457,9 @@ id,Name,Type1,Type2,Total,HP,Attack,Defense,SpAtk,SpDef,Speed,Generation,Legenda
 410,Shieldon,Rock,Steel,350,30,42,118,42,88,30,4,False
 411,Bastiodon,Rock,Steel,495,60,52,168,47,138,30,4,False
 412,Burmy,Bug,,224,40,29,45,29,45,36,4,False
-413,WormadamPlant Cloak,Bug,Grass,424,60,59,85,79,105,36,4,False
-413,WormadamSandy Cloak,Bug,Ground,424,60,79,105,59,85,36,4,False
-413,WormadamTrash Cloak,Bug,Steel,424,60,69,95,69,95,36,4,False
+413,Wormadam Plant Cloak,Bug,Grass,424,60,59,85,79,105,36,4,False
+413,Wormadam Sandy Cloak,Bug,Ground,424,60,79,105,59,85,36,4,False
+413,Wormadam Trash Cloak,Bug,Steel,424,60,69,95,69,95,36,4,False
 414,Mothim,Bug,Flying,424,70,94,50,94,50,66,4,False
 415,Combee,Bug,Flying,244,30,30,42,30,42,70,4,False
 416,Vespiquen,Bug,Flying,474,70,80,102,80,102,40,4,False
@@ -531,11 +531,11 @@ id,Name,Type1,Type2,Total,HP,Attack,Defense,SpAtk,SpDef,Speed,Generation,Legenda
 477,Dusknoir,Ghost,,525,45,100,135,65,135,45,4,False
 478,Froslass,Ice,Ghost,480,70,80,70,80,70,110,4,False
 479,Rotom,Electric,Ghost,440,50,50,77,95,77,91,4,False
-479,RotomHeat Rotom,Electric,Fire,520,50,65,107,105,107,86,4,False
-479,RotomWash Rotom,Electric,Water,520,50,65,107,105,107,86,4,False
-479,RotomFrost Rotom,Electric,Ice,520,50,65,107,105,107,86,4,False
-479,RotomFan Rotom,Electric,Flying,520,50,65,107,105,107,86,4,False
-479,RotomMow Rotom,Electric,Grass,520,50,65,107,105,107,86,4,False
+479,Rotom Heat Rotom,Electric,Fire,520,50,65,107,105,107,86,4,False
+479,Rotom Wash Rotom,Electric,Water,520,50,65,107,105,107,86,4,False
+479,Rotom Frost Rotom,Electric,Ice,520,50,65,107,105,107,86,4,False
+479,Rotom Fan Rotom,Electric,Flying,520,50,65,107,105,107,86,4,False
+479,Rotom Mow Rotom,Electric,Grass,520,50,65,107,105,107,86,4,False
 480,Uxie,Psychic,,580,75,75,130,75,130,95,4,True
 481,Mesprit,Psychic,,580,80,105,105,105,105,80,4,True
 482,Azelf,Psychic,,580,75,125,70,125,70,115,4,True
@@ -543,8 +543,8 @@ id,Name,Type1,Type2,Total,HP,Attack,Defense,SpAtk,SpDef,Speed,Generation,Legenda
 484,Palkia,Water,Dragon,680,90,120,100,150,120,100,4,True
 485,Heatran,Fire,Steel,600,91,90,106,130,106,77,4,True
 486,Regigigas,Normal,,670,110,160,110,80,110,100,4,True
-487,GiratinaAltered Forme,Ghost,Dragon,680,150,100,120,100,120,90,4,True
-487,GiratinaOrigin Forme,Ghost,Dragon,680,150,120,100,120,100,90,4,True
+487,Giratina Altered Forme,Ghost,Dragon,680,150,100,120,100,120,90,4,True
+487,Giratina Origin Forme,Ghost,Dragon,680,150,120,100,120,100,90,4,True
 488,Cresselia,Psychic,,600,120,70,120,75,130,85,4,False
 489,Phione,Water,,480,80,80,80,80,80,80,4,False
 490,Manaphy,Water,,600,100,100,100,100,100,100,4,False
