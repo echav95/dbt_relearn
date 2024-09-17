@@ -1,7 +1,11 @@
-with poke as (SELECT *,
-ROW_NUMBER() OVER (PARTITION BY ID ORDER BY ID) AS rn
-FROM {{ref("pokemon_battle")}}
-ORDER BY ID)
-SELECT * 
-FROM poke
-WHERE rn = 1
+with poke as (
+    select
+        *,
+        ROW_NUMBER() over (partition by id order by id) as rn
+    from {{ ref("pokemon_battle") }}
+    order by id
+)
+
+select *
+from poke
+where rn = 1
