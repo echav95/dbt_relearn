@@ -3,7 +3,7 @@ unit_tests:
     description: test to see how strong the pokemon are
     model: pokemon_strength
     given:
-      - input: ref("pokemon_battle")
+      - input: ref("pokemon_battle", v=1)
         rows:
           - { ID: 1, ATTACK: 49 }
           - { ID: 2, ATTACK: 62 }
@@ -23,7 +23,7 @@ unit_tests:
       macros: 
         dbt.current_timestamp: "date('2024-09-06')"
     given:
-      - input: ref("pokemon_battle")
+      - input: ref("pokemon_battle", v=1)
         rows:
           - {Release_Date: 1996-02-27}
     expect:
