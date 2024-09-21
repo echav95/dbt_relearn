@@ -1,0 +1,9 @@
+sources:
+  - name: ANALYTICS
+    schema: DBT_ECHAVEZ
+    tables:
+      - name: CUSTOMERS
+
+      - name: PAYMENT
+
+      - name: ORDERS

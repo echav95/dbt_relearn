@@ -1,14 +1,18 @@
-With a AS (SELECT
-    ID,
-    NAME,
-    TOTAL,
-    ATTACK,
-    CASE
-        WHEN ATTACK > 60 then 'Really Strong'
-        WHEN ATTACK > 50 then 'Strong'
-        ELSE 'Weak'
-        END as Power
-FROM {{ ref("pokemon_battle") }})
+With battle As (Select
+    id,
+    name,
+    total,
+    attack,
+    release_date,
+    Case
+        When attack > 60 Then 'Really Strong'
+        When attack > 50 Then 'Strong'
+        Else 'Weak'
+    End As power,
+    datediff('day', release_date, {{ dbt.current_timestamp() }})
+        As days_since_released
+From {{ ref("pokemon_battle", v=1) }}
+)
 
-SELECT *
-FROM a
+Select *
+From battle

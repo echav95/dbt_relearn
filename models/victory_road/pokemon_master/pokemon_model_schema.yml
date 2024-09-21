@@ -1,0 +1,78 @@
+models:
+  - name: pokemon_battle
+    latest_version: 1
+    description: "column identity for pokemon battle"
+    access: protected
+    config:
+      contract:
+        enforced: true
+      group: professor
+    columns:
+      - name: id
+        data_type: number
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+        tests:
+          - pokemon_wrong
+
+      - name: type1
+        data_type: varchar
+        description: ""
+
+      - name: type2
+        data_type: varchar
+        description: ""
+
+      - name: total
+        data_type: number
+        description: ""
+
+      - name: hp
+        data_type: number
+        description: ""
+
+      - name: attack
+        data_type: number
+        description: ""
+
+      - name: defense
+        data_type: number
+        description: ""
+
+      - name: spatk
+        data_type: number
+        description: ""
+
+      - name: spdef
+        data_type: number
+        description: ""
+
+      - name: speed
+        data_type: number
+        description: ""
+
+      - name: legendary
+        data_type: boolean
+        description: ""
+
+      - name: generation
+        data_type: number
+        description: ""
+
+      - name: release_date
+        data_type: date
+        description: ""
+    versions:
+      - v: 1
+        config: 
+          alias: pokemon_battle
+      - v: 2
+        config:
+          contract:
+            enforced: false
+        columns:
+          - include: all
+            exclude: [release_date]

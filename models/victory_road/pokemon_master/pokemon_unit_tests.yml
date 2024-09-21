@@ -3,7 +3,7 @@ unit_tests:
     description: test to see how strong the pokemon are
     model: pokemon_strength
     given:
-      - input: ref("pokemon_battle")
+      - input: ref("pokemon_battle", v=1)
         rows:
           - { ID: 1, ATTACK: 49 }
           - { ID: 2, ATTACK: 62 }
@@ -15,3 +15,19 @@ unit_tests:
         - { ID: 2, ATTACK: 62, Power: Really Strong }
         - { ID: 3, ATTACK: 82, Power: Really Strong }
         - { ID: 4, ATTACK: 52, Power: Strong }
+
+  - name: test_days_since_ordered
+    description: Calculate days since original release
+    model: pokemon_strength
+    overrides:
+      macros: 
+        dbt.current_timestamp: "date('2024-09-06')"
+    given:
+      - input: ref("pokemon_battle", v=1)
+        rows:
+          - {Release_Date: 1996-02-27}
+    expect:
+      rows:
+        - {Release_Date: 1996-02-27, days_since_released: 10419}
+      
+        

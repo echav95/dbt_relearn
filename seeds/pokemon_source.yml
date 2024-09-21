@@ -1,0 +1,4 @@
+sources:
+  - name: pokemon_source
+    tables:
+      - name: pokemon
