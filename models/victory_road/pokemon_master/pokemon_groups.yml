@@ -1,0 +1,10 @@
+groups:
+  - name: professor
+    owner:
+      name: Professor Oak
+      email: catchthemall@gmail.com
+  - name: trainer
+    owner:
+      name: Red
+      email: greatestofthemall@gmail.com
+      

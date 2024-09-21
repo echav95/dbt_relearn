@@ -2,9 +2,11 @@ models:
   - name: pokemon_battle
     latest_version: 1
     description: "column identity for pokemon battle"
+    access: protected
     config:
       contract:
         enforced: true
+      group: professor
     columns:
       - name: id
         data_type: number
@@ -13,6 +15,8 @@ models:
       - name: name
         data_type: varchar
         description: ""
+        tests:
+          - pokemon_wrong
 
       - name: type1
         data_type: varchar
