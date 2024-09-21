@@ -2,7 +2,7 @@ models:
   - name: pokemon_battle
     latest_version: 1
     description: "column identity for pokemon battle"
-    access: protected
+    access: public
     config:
       contract:
         enforced: true
