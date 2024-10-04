@@ -1,0 +1,58 @@
+semantic_models:
+- name: pokemon_battle
+  description: Column identity for pokemon battle
+  model: ref('pokemon_battle')
+  defaults:
+    agg_time_dimension: release_date
+  entities:
+  - name: pokemon
+    type: primary
+    expr: id
+  dimensions:
+  - name: name
+    type: categorical
+  - name: type1
+    type: categorical
+  - name: type2
+    type: categorical
+  - name: legendary
+    type: categorical
+  - name: generation
+    type: categorical
+  - name: release_date
+    type: time
+    type_params:
+      time_granularity: day
+  measures:
+  - name: total
+    description: Total stats of the Pokemon.
+    agg: sum
+    create_metric: true
+  - name: hp
+    description: Hit points of the Pokemon.
+    agg: sum
+    create_metric: true
+  - name: attack
+    description: Attack stat of the Pokemon.
+    agg: sum
+    create_metric: true
+  - name: defense
+    description: Defense stat of the Pokemon.
+    agg: sum
+    create_metric: true
+  - name: spatk
+    description: Special attack stat of the Pokemon.
+    agg: sum
+    create_metric: true
+  - name: spdef
+    description: Special defense stat of the Pokemon.
+    agg: sum
+    create_metric: true
+  - name: speed
+    description: Speed stat of the Pokemon.
+    agg: sum
+    create_metric: true
+  - name: count_pokemon
+    agg: count
+    create_metric: true
+    expr: id

@@ -1,5 +1,0 @@
-semantic_models:
-  - name: dim_host
-    defaults:
-      agg_time_dimension: updated_at
-    model: ref('dim_listings_w_host')
