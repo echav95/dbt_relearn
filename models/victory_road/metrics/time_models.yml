@@ -1,10 +1,9 @@
 models:
   - name: time_spine_hourly
-    time_spine:
-      standard_granularity_column: date_hour # column for the standard grain of your table
+    description: This model generates an hourly time spine from January 1, 2000, to January 1, 2025, and filters it to include only the last 30 days from the current date. It is useful for time-based analyses at an hourly granularity.
     columns:
       - name: date_hour
-        granularity: hour # set granularity at column-level for standard_granularity_column
+        description: The timestamp representing each hour in the time spine, filtered to the last 30 days.
   - name: time_spine_daily
     time_spine:
       standard_granularity_column: date_day # column for the standard grain of your table
