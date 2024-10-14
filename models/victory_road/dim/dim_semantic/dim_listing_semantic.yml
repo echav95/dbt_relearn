@@ -1,0 +1,23 @@
+semantic_models:
+  - name: dim_listing_sem
+    defaults:
+      agg_time_dimension: updated_at
+    description: first semantic model by hand
+    model: ref('dim_listings_w_host')
+
+    entities:
+      - name: listing_id
+        type: primary
+      - name: host_id
+        type: foreign
+
+    dimensions:
+      - name: updated_at
+        type: time
+        type_params:
+          time_granularity: day
+
+    measures:
+      - name: price_avg
+        description: avg of price column
+        agg: average
