@@ -46,12 +46,4 @@ semantic_models:
     agg: count_distinct
     create_metric: true
     expr: host_id
-
-metrics:
-  - name: "avg_amount"
-    type: simple
-    label: "avg_amount5"
-    type_params:
-      measure:
-        price_avg
       
