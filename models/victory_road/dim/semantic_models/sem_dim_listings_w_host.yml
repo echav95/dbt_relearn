@@ -37,7 +37,6 @@ semantic_models:
   - name: average_price
     description: Price of the listing.
     agg: average
-    create_metric: true
     expr: price
   - name: count_listing
     agg: count
@@ -48,3 +47,10 @@ semantic_models:
     create_metric: true
     expr: host_id
       
+metrics:
+  - name: "avg_amount"
+    type: simple
+    label: "avg_amount"
+    type_params:
+      measure:
+        average_price
