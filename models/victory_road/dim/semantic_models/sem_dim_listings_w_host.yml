@@ -35,7 +35,6 @@ semantic_models:
     agg: min
     create_metric: true
   - name: average_price
-    description: Price of the listing.
     agg: average
     create_metric: true
     expr: price
