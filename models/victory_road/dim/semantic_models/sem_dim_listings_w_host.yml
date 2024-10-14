@@ -30,14 +30,13 @@ semantic_models:
     type_params:
       time_granularity: day
   measures:
-  - name: minimum_nights
+  - name: minimum_nights2
     description: Minimum number of nights for a listing.
     agg: min
     create_metric: true
   - name: average_price
     agg: average
     create_metric: true
-    expr: price
   - name: count_listing
     agg: count
     create_metric: true
