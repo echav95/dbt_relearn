@@ -40,7 +40,7 @@ semantic_models:
     create_metric: true
     expr: price
   - name: count_listing
-    agg: count
+    agg: average
     create_metric: true
     expr: listing_id
   - name: count_host
