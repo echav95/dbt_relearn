@@ -33,18 +33,18 @@ semantic_models:
   - name: minimum_nights
     description: Minimum number of nights for a listing.
     agg: average
-    create_metric: false
+    create_metric: True
     expr: minimum_nights
   - name: price
     description: Price of the listing.
     agg: average
-    create_metric: false
+    create_metric: True
     expr: price
   - name: count_listing
     agg: count
-    create_metric: false
+    create_metric: True
     expr: listing_id
   - name: count_host
     agg: count_distinct
-    create_metric: false
+    create_metric: True
     expr: host_id
