@@ -21,3 +21,12 @@ semantic_models:
       - name: price_avg
         description: avg of price column
         agg: average
+
+metrics:
+  - name: "avg_amount"
+    type: simple
+    label: "avg_amount"
+    type_params:
+      measure:
+        price_avg
+      
