@@ -50,7 +50,7 @@ semantic_models:
 metrics:
   - name: "avg_amount"
     type: simple
-    label: "avg_amount"
+    label: "avg_amount5"
     type_params:
       measure:
         price_avg
