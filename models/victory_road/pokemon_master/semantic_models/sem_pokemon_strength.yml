@@ -1,0 +1,37 @@
+semantic_models:
+- name: pokemon_strength
+  description: A model to analyze the strength and characteristics of Pokemon based
+    on their battle attributes.
+  model: ref('pokemon_battle', v=1)
+  defaults:
+    agg_time_dimension: release_date
+  entities:
+  - name: pokemon
+    type: primary
+    expr: id
+  dimensions:
+  - name: name
+    type: categorical
+  - name: release_date
+    type: time
+    type_params:
+      time_granularity: day
+  - name: power
+    type: categorical
+  measures:
+  - name: total
+    description: The total strength score of the Pokemon.
+    agg: sum
+    create_metric: true
+  - name: attack
+    description: The attack strength of the Pokemon.
+    agg: sum
+    create_metric: true
+  - name: days_since_released
+    description: Number of days since the Pokemon was released.
+    agg: sum
+    create_metric: true
+  - name: count_pokemon
+    agg: count
+    create_metric: true
+    expr: id
