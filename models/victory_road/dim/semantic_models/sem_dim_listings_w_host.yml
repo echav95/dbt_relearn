@@ -48,3 +48,11 @@ semantic_models:
     agg: count_distinct
     create_metric: True
     expr: host_id
+
+metrics:
+  - name: ratio_metric_host_price
+    label: avg price per host
+    type: ratio
+    type_params:
+      numerator: price
+      denominator: count_host
