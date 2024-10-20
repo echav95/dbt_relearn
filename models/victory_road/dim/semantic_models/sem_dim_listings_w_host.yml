@@ -56,3 +56,13 @@ metrics:
     type_params:
       numerator: price
       denominator: count_host
+  - name: derived_price_count
+    label: avg price minus count
+    type: derived
+    type_params:
+      expr: avg_price - count
+      metrics:
+        - name: price
+          alias: avg_price
+        - name: count_listing
+          alias: count
