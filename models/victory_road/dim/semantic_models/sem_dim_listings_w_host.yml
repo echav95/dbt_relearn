@@ -66,3 +66,10 @@ metrics:
           alias: avg_price
         - name: count_listing
           alias: count
+  - name: time_table_price
+    label: cumulative for 1 month
+    type: cumulative
+    type_params:
+      measure:
+        name: price
+      window: 1 month
