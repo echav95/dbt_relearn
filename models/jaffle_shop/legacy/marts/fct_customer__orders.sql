@@ -2,78 +2,58 @@
 with
 
 customers as (
-    select * from {{source("ANALYTICS","CUSTOMERS")}}
+    select * from {{ref('stg_jaffle_shop_customers')}}
 ),
 
 orders as (
-    select * from {{source("ANALYTICS","ORDERS")}}
+    select * from {{ref('int_orders')}}
+),
+-- 
+
+customer_orders as (
+    select
+        orders.*,
+        customers.full_name,
+        customers.surname,
+        customers.givenname,
+        -- customer level aggregation
+        min(orders.order_date) over (partition by orders.customer_id) as customer_first_order_date,
+        min(orders.valid_order_date) over (partition by orders.customer_id) as customer_first_non_returned_order_date,
+        max(orders.valid_order_date) over (partition by orders.customer_id) as customer_most_recent_non_returned_order_date,
+        count(*) over (partition by orders.customer_id) as customer_order_count,
+        sum(nvl2(orders.valid_order_date, 1, 0)) over(partition by orders.customer_id) as customer_non_returned_order_count,
+        sum(nvl2(orders.valid_order_date, orders.order_value_dollars, 0)) over(partition by orders.customer_id) as customer_total_lifetime_value,
+        array_agg(distinct orders.order_id) over (partition by orders.customer_id) as customer_order_ids
+
+    from orders
+    inner join customers on orders.customer_id = customers.customer_id
 ),
 
-payments as (
-    select * from {{source("ANALYTICS","PAYMENT")}}
-)
--- Logical CTEs
+add_avg_order_values as (
+    select
+        *,
+        customer_total_lifetime_value/customer_non_returned_order_count as customer_avg_non_returned_order_value
+    from customer_orders
+),
 
+-- Final CTEs
+
+final as (
 
 select 
-    orders.id as order_id,
-    orders.user_id as customer_id,
-    last_name as surname,
-    first_name as givenname,
-    first_order_date,
-    order_count,
-    total_lifetime_value,
-    round(amount/100.0,2) as order_value_dollars,
-    orders.status as order_status,
-    payments.status as payment_status
-from orders as orders
+    order_id,
+    customer_id,
+    surname,
+    givenname,
+    customer_first_order_date as first_order_date,
+    customer_order_count as order_count,
+    customer_total_lifetime_value as total_lifetime_value,
+    order_value_dollars,
+    order_status,
+    payment_status
+from add_avg_order_values
 
-join customers
-on orders.user_id = customers.id
-
-join (
-
-    select 
-        b.id as customer_id,
-        b.name as full_name,
-        b.last_name as surname,
-        b.first_name as givenname,
-        min(order_date) as first_order_date,
-        min(case when a.status NOT IN ('returned','return_pending') then order_date end) as first_non_returned_order_date,
-        max(case when a.status NOT IN ('returned','return_pending') then order_date end) as most_recent_non_returned_order_date,
-        COALESCE(max(user_order_seq),0) as order_count,
-        COALESCE(count(case when a.status != 'returned' then 1 end),0) as non_returned_order_count,
-        sum(case when a.status NOT IN ('returned','return_pending') then ROUND(c.amount/100.0,2) else 0 end) as total_lifetime_value,
-        sum(case when a.status NOT IN ('returned','return_pending') then ROUND(c.amount/100.0,2) else 0 end)/NULLIF(count(case when a.status NOT IN ('returned','return_pending') then 1 end),0) as avg_non_returned_order_value,
-        array_agg(distinct a.id) as order_ids
-
-    from (
-      select 
-        row_number() over (partition by user_id order by order_date, id) as user_order_seq,
-        *
-      from orders
-    ) a
-
-    join ( 
-      select 
-        first_name || ' ' || last_name as name, 
-        * 
-      from customers
-    ) b
-    on a.user_id = b.id
-
-    left outer join payments c
-    on a.id = c.orderid
-
-    where a.status NOT IN ('pending') and c.status != 'fail'
-
-    group by b.id, b.name, b.last_name, b.first_name
-
-) customer_order_history
-on orders.user_id = customer_order_history.customer_id
-
-left outer join payments payments
-on orders.id = payments.orderid
-
-where payments.status != 'fail'
 ORDER BY ORDER_ID
+)
+
+select * from final
