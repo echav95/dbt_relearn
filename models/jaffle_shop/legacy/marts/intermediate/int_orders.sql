@@ -1,4 +1,4 @@
--- Meeeee
+-- Test slim ci
 
 with
 
