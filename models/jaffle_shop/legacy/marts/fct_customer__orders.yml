@@ -1,0 +1,26 @@
+models:
+  - name: fct_customer__orders
+    description: This model aggregates customer order data, providing insights into customer behavior and order history. It includes details such as the first order date, total number of orders, and total lifetime value for each customer.
+    columns:
+      - name: order_id
+        description: A unique identifier for each order.
+        tests:
+          - count_greater_one
+      - name: customer_id
+        description: A unique identifier for each customer.
+      - name: surname
+        description: The surname of the customer who placed the order.
+      - name: givenname
+        description: The given name of the customer who placed the order.
+      - name: first_order_date
+        description: The date when the customer placed their first order.
+      - name: order_count
+        description: The total number of orders placed by the customer.
+      - name: total_lifetime_value
+        description: The total value of all orders placed by the customer.
+      - name: order_value_dollars
+        description: The value of the order in dollars.
+      - name: order_status
+        description: The current status of the order.
+      - name: payment_status
+        description: The payment status of the order.
