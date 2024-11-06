@@ -5,9 +5,17 @@ models:
       - name: order_id
         description: A unique identifier for each order.
         tests:
+          - unique:
+              config:
+                store_failures: true
+                severity: warn
+                error_if: '>10'
           - count_greater_one
       - name: customer_id
         description: A unique identifier for each customer.
+        tests:
+          - not_null:
+              limit: 5
       - name: surname
         description: The surname of the customer who placed the order.
       - name: givenname
