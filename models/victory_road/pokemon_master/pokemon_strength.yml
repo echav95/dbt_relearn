@@ -1,0 +1,20 @@
+File name and location: models/pokemon_strength.yml
+
+models:
+  - name: pokemon_strength
+    description: This model evaluates the strength of Pokémon based on their attack power and calculates the number of days since their release.
+    columns:
+      - name: id
+        description: '{{ doc("charmander")}}'
+      - name: name
+        description: The name of the Pokémon.
+      - name: total
+        description: The total score representing the overall strength of the Pokémon.
+      - name: attack
+        description: The attack power of the Pokémon, used to determine its strength category.
+      - name: release_date
+        description: The date when the Pokémon was released.
+      - name: power
+        description: The strength category of the Pokémon, classified as 'Really Strong', 'Strong', or 'Weak' based on attack power.
+      - name: days_since_released
+        description: The number of days since the Pokémon was released, calculated from the release date to the current date.
