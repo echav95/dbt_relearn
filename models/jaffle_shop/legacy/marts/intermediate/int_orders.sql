@@ -1,5 +1,3 @@
--- slim shady
-
 with
 
 orders as (
