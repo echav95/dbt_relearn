@@ -54,7 +54,7 @@ models:
       #   - "GRANT SELECT ON {{ this }} TO ROLE REPORT"
       dim:
         +materialized: table
-        tags: red
+        +tags: red
         dim_semantic:
           +materialized: view
 
