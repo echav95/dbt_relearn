@@ -57,6 +57,7 @@ models:
         +tags: red
         dim_semantic:
           +materialized: view
+          +tags: blue
 
       src:
         +materialized: ephemeral
