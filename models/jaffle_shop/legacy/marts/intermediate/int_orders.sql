@@ -28,4 +28,11 @@ order_values_joined as (
     order by order_id
 )
 
-select * from order_values_joined
+select *,
+    case 
+        when order_value_dollars > 100 THEN 'big_item'
+        when order_value_dollars > 50 THEN 'medium_item'
+        when order_value_dollars > 10 THEN 'small_item'
+        ELSE 'xtra_small_item'
+        END
+ from order_values_joined
