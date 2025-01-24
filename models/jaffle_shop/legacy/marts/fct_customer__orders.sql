@@ -50,7 +50,7 @@ select
     customer_total_lifetime_value as total_lifetime_value,
     order_value_dollars,
     order_status,
-    payment_status
+    payment_status as paid_status
 from add_avg_order_values
 
 ORDER BY ORDER_ID
