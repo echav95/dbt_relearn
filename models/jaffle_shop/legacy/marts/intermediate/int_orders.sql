@@ -29,4 +29,4 @@ order_values_joined as (
 )
 
 select *
- from order_values_joined
+from order_values_joined
