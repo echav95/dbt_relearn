@@ -1,7 +1,3 @@
--- Yuji
--- I love you baby
--- Add you please
-
 with 
 
 orders as (
