@@ -25,6 +25,8 @@ order_values_joined as (
     from orders
     left join order_totals
         on orders.order_id = order_totals.order_id
+    order by order_id
 )
 
-select * from order_values_joined
+select *
+from order_values_joined

@@ -50,10 +50,17 @@ select
     customer_total_lifetime_value as total_lifetime_value,
     order_value_dollars,
     order_status,
-    payment_status
+    payment_status as paid_status
 from add_avg_order_values
 
 ORDER BY ORDER_ID
 )
 
-select * from final
+select *,
+    case 
+        when order_value_dollars > 100 THEN 'big_item'
+        when order_value_dollars > 50 THEN 'medium_item'
+        when order_value_dollars > 10 THEN 'small_item'
+        ELSE 'xtra_small_item'
+        END purchase_size
+ from final

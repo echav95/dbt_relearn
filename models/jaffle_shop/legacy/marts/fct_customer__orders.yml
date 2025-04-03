@@ -32,3 +32,5 @@ models:
         description: The current status of the order.
       - name: payment_status
         description: The payment status of the order.
+      - name: purchase_size
+        description: The purchase size of the order.
