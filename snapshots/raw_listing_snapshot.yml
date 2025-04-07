@@ -1,0 +1,7 @@
+snapshots:
+  - name: raw_listing_snap
+    relation: source('ANALYTICS', 'listings')
+    config:
+      unique_key: id
+      strategy: check
+      check_cols: all
