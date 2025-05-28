@@ -14,7 +14,7 @@ dbt-cloud:
     project-id: 70403103951225
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'my_snowflake_profile'
+profile: 'default'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
