@@ -1,0 +1,4 @@
+models:
+  - name: python_test
+    config:
+      materialized: table

@@ -1,0 +1,16 @@
+exposures:
+
+  - name: orders_report
+    label: Looker Orders
+    type: dashboard
+    maturity: high
+    url: https://lookerstudio.google.com/reporting/312056d6-9f1c-4a94-aa83-b4a5469ff01d
+    description: >
+      Did someone say "exponential growth"?
+
+    depends_on:
+      - source("ANALYTICS","ORDERS")
+
+    owner:
+      name: Ecequiel Chavez
+      email: ecequiel.chavez@dbtlabs.com
