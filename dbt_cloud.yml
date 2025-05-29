@@ -1,0 +1,21 @@
+version: "1"
+context:
+  active-host: "yt263.us1.dbt.com"
+  active-project: "70403103951225"
+projects:
+  - project-name: "dbt_mesh"
+    project-id: "70403103963943"
+    account-name: "EChavez' dbt Labs Sandbox"
+    account-id: "70403103922028"
+    account-host: "yt263.us1.dbt.com"
+    token-name: "cloud-cli-5992"
+    token-value: "dbtu_F1T-b_MgK2FsCJOzlWg0lT_lxxDAHw2gnfV-pvdrKXEOze0fX8"
+  - project-name: "dbt_relearn"
+    project-id: "70403103951225"
+    account-name: "EChavez' dbt Labs Sandbox"
+    account-id: "70403103922028"
+    account-host: "yt263.us1.dbt.com"
+    token-name: "cloud-cli-5992"
+    token-value: "dbtu_F1T-b_MgK2FsCJOzlWg0lT_lxxDAHw2gnfV-pvdrKXEOze0fX8"
+
+
