@@ -20,14 +20,12 @@ unit_tests:
     description: Calculate days since original release
     model: pokemon_strength
     overrides:
-      macros: 
+      macros:
         dbt.current_timestamp: "date('2024-09-06')"
     given:
       - input: ref("pokemon_battle", v=1)
         rows:
-          - {Release_Date: 1996-02-27}
+          - { Release_Date: 1996-02-27 }
     expect:
       rows:
-        - {Release_Date: 1996-02-27, days_since_released: 10419}
-      
-        
+        - { Release_Date: 1996-02-27, days_since_released: 10419 }
