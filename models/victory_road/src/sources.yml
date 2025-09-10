@@ -8,7 +8,8 @@ sources:
           - name: room_type
             tests:
               - dbt_expectations.expect_column_distinct_count_to_equal:
-                  value: 4
+                  arguments:
+                    expression: "room_type = 4"
 
       - name: hosts
         identifier: raw_hosts
