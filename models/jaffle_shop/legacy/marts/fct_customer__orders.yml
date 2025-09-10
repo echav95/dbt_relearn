@@ -15,7 +15,8 @@ models:
         description: A unique identifier for each customer.
         tests:
           - not_null:
-              limit: 5
+              config:
+                limit: 5
       - name: surname
         description: The surname of the customer who placed the order.
       - name: givenname
