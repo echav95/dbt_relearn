@@ -3,15 +3,15 @@
 # name or the intended use of these models
 name: 'my_new_project'
 version: '1.0.0'
-  
 config-version: 2
 
 flags:
   fail_fast: false
   partial_parse: true
 
+  require_generic_test_arguments_property: true
 dbt-cloud:
-    project-id: 70403103951225
+  project-id: 70403103951225
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
@@ -26,8 +26,6 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 asset-paths: ["assets"]
-
-target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
