@@ -1,0 +1,28 @@
+models:
+  - name: int_orders
+    columns:
+      - name: ORDER_ID
+        data_tests:
+          - unique
+          - not_null
+      - name: CUSTOMER_ID
+        data_tests:
+          - not_null
+      - name: ORDER_DATE
+        data_tests:
+          - not_null
+      - name: ORDER_STATUS
+        data_tests:
+          - not_null
+      - name: VALID_ORDER_DATE
+        data_tests:
+          - not_null
+      - name: USER_ORDER_SEQ
+        data_tests:
+          - not_null
+      - name: PAYMENT_STATUS
+        data_tests:
+          - not_null
+      - name: ORDER_VALUE_DOLLARS
+        data_tests:
+          - not_null
