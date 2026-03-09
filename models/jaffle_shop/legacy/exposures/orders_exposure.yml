@@ -9,7 +9,7 @@ exposures:
       Did someone say "exponential growth"?
 
     depends_on:
-      - source("ANALYTICS","ORDERS")
+      - source("ANALYTICS","ORDERZ")
 
     owner:
       name: Ecequiel Chavez

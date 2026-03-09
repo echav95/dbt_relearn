@@ -9,12 +9,12 @@ select
     round(amount/100.0,2) as order_value_dollars,
     orders.status as order_status,
     payments.status as payment_status
-from {{source("ANALYTICS","ORDERS")}} as orders
+from {{source("ANALYTICS","ORDERZ")}} as orders
 join (
       select 
         first_name || ' ' || last_name as name, 
         * 
-      from {{source("ANALYTICS","CUSTOMERS")}}
+      from {{source("ANALYTICS","CUSTOMER")}}
 ) customers
 on orders.user_id = customers.id
 
@@ -38,14 +38,14 @@ join (
       select 
         row_number() over (partition by user_id order by order_date, id) as user_order_seq,
         *
-      from {{source("ANALYTICS","ORDERS")}}
+      from {{source("ANALYTICS","ORDERZ")}}
     ) a
 
     join ( 
       select 
         first_name || ' ' || last_name as name, 
         * 
-      from {{source("ANALYTICS","CUSTOMERS")}}
+      from {{source("ANALYTICS","CUSTOMER")}}
     ) b
     on a.user_id = b.id
 
