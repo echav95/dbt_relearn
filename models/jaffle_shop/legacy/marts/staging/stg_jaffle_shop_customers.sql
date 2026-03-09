@@ -1,7 +1,7 @@
 with
 
 source as (
-    select * from {{source("ANALYTICS","CUSTOMERS")}}),
+    select * from {{source("ANALYTICS","CUSTOMER")}}),
 
 customers as (
       select 

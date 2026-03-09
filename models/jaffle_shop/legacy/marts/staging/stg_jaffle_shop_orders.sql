@@ -1,6 +1,6 @@
 with
 source as (
-    select * from {{source("ANALYTICS","ORDERS")}}),
+    select * from {{source("ANALYTICS","ORDERZ")}}),
 orders as (
       select 
         id as order_id,

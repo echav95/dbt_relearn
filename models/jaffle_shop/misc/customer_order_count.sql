@@ -2,12 +2,12 @@ with
 
 orders as (
     select *
-    FROM {{source("ANALYTICS","ORDERS")}}
+    FROM {{source("ANALYTICS","ORDERZ")}}
 ),
 
 customers as (
     select *
-    FROM {{source("ANALYTICS","CUSTOMERS")}}
+    FROM {{source("ANALYTICS","CUSTOMER")}}
 ),
 
 payment as (

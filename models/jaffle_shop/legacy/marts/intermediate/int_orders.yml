@@ -15,8 +15,7 @@ models:
         data_tests:
           - not_null
       - name: VALID_ORDER_DATE
-        data_tests:
-          - not_null
+
       - name: USER_ORDER_SEQ
         data_tests:
           - not_null

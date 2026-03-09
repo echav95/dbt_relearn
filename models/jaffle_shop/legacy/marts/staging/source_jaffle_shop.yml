@@ -2,8 +2,8 @@ sources:
   - name: ANALYTICS
     schema: DBT_ECHAVEZ
     tables:
-      - name: CUSTOMERS
+      - name: CUSTOMER
 
       - name: PAYMENT
 
-      - name: ORDERS
+      - name: ORDERZ
