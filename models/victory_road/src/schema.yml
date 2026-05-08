@@ -2,39 +2,110 @@ models:
   - name: dim_listings_cleansed
     description: Cleansed table which contains Airbnb listings.
     columns:
-     - name: listing_id
-       description: Primary Key for the listing
-       tests:
-         - unique
-         - not_null
+      - name: listing_id
+        description: Primary Key for the listing
+        tests:
+          - unique
+          - not_null
 
 # this test does NOT allow any inserts in the dim_listings_cleansed.host_id 
 # that do NOT exist in dim_hosts_cleansed.host_id
-     - name: host_id
-       description: The host's id. References the host table
-       tests:
-         - not_null
-         - relationships:
-            arguments:
-             field: host_id
-             to: ref('dim_hosts_cleansed')
-    
-     - name: room_type
-       description: Type of apartment or room
-       tests:
-         - accepted_values:
-            arguments:
-             values: ['Entire home/apt',
-                      'Private room',
-                      'Shared room',
-                      'Hotel room']
+      - name: host_id
+        description: The host's id. References the host table
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                field: host_id
+                to: ref('dim_hosts_cleansed')
 
-     - name: minimum_nights
-       description: '{{ doc("dim_listings_cleansed_minimum_nights") }}'
-       tests:
-        - positive_value
+      - name: room_type
+        description: Type of apartment or room
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Entire home/apt', 'Private room', 'Shared room', 'Hotel room']
+
+      - name: minimum_nights
+        description: '{{ doc("dim_listings_cleansed_minimum_nights") }}'
+        tests:
+          - positive_value
   - name: dim_listings_w_host
     tests:
       - dbt_expectations.expect_table_row_count_to_equal_other_table:
           arguments:
             compare_model: source('ANALYTICS', 'listings')
+    semantic_model:
+      enabled: true
+      name: dim_listings_w_host
+    description: A combined table of Airbnb listings with host details.
+    agg_time_dimension: created_at
+    columns:
+      - name: listing_id
+        entity:
+          type: primary
+          name: listing
+      - name: host_id
+        entity:
+          type: foreign
+          name: host
+      - name: listing_name
+        dimension:
+          type: categorical
+          name: name
+      - name: room_type
+        dimension:
+          type: categorical
+      - name: host_name
+        dimension:
+          type: categorical
+      - name: host_is_superhost
+        dimension:
+          type: categorical
+      - name: created_at
+        dimension:
+          type: time
+        granularity: day
+      - name: updated_at
+        dimension:
+          type: time
+        granularity: day
+    metrics:
+      - name: minimum_nights
+        description: Minimum number of nights for a listing.
+        agg: average
+        expr: minimum_nights
+        type: simple
+      - name: price
+        description: Price of the listing.
+        agg: average
+        expr: price
+        type: simple
+      - name: count_listing
+        agg: count
+        expr: listing_id
+        type: simple
+      - name: count_host
+        agg: count_distinct
+        expr: host_id
+
+        type: simple
+      - name: ratio_metric_host_price
+        label: avg price per host
+        type: ratio
+        numerator: price
+        denominator: count_host
+      - name: derived_price_count
+        label: avg price minus count
+        type: derived
+        expr: avg_price - count
+        input_metrics:
+          - name: price
+            alias: avg_price
+          - name: count_listing
+            alias: count
+      - name: time_table_price
+        label: cumulative for 1 month
+        type: cumulative
+        input_metric:
+          name: price

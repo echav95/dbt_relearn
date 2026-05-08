@@ -14,7 +14,7 @@ models:
       - name: name
         data_type: varchar
         description: ""
-        tests:
+        data_tests:
           - pokemon_wrong
 
       - name: type1
@@ -66,7 +66,7 @@ models:
         description: ""
     versions:
       - v: 1
-        config: 
+        config:
           alias: pokemon_battle
       - v: 2
         config:
